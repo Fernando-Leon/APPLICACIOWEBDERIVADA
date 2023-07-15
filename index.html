@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA DE MAXIMO Y MINIMOS</title>
+    <link rel="stylesheet" href="CSS/main.css" type="text/css">
+</head>
+<body>
+    <header class="container-h-full">
+        <nav>
+            <div>
+                <span class="spM">M</span>
+                <span class="spA">A</span>
+                <span class="spT">T</span>
+                <span class="spH">H</span>
+                <span class="spK">K</span>
+                <span class="spI">I</span>
+                <span class="spD">D</span>
+            </div>
+        </nav>
+        <h1>CALCULADORA DE MAXIMO Y MINIMOS DE UNA FUNCION</h1>
+        <div id="form-input" class="card"> 
+            <div id="cont-input">
+                <input type="number" placeholder="f(x) = 3x^2">
+                <button id="btn-calculate">CALCULAR</button>
+            </div>
+            <div id="pad-numeric">
+                <button class="btn">1</button>
+                <button class="btn">2</button>
+                <button class="btn">3</button>
+                <button class="btn">4</button>
+                <button class="btn">5</button>
+                <button class="btn">6</button>
+                <button class="btn">7</button>
+                <button class="btn">8</button>
+                <button class="btn">9</button>
+                <button class="btn">0</button>
+                <button class="btn">+</button>
+                <button class="btn">-</button>
+                <button class="btn">x</button>
+                <button class="btn">x²</button>
+                <button class="btn">x</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button id="btn-del">DEL</button>
+            </div>
+        </div>
+    </header>
+    
+    <div id="cont-result-main">
+            <div id="cont-res" class="card">
+                <div id="title-result">
+                    <h2></h2>
+                </div>
+                <div id="cont-result">
+                    <p id="text-result">
+                        Funcion ingresada: f(x) = 3x^2 <br>
+                        La primera derivada es: f'(x) = 6x <br>
+                        La segunda derivada es: f''(x) = 6 <br>
+                        Raiz de la primera derivada: x = 0 <br>
+                        Sustituyen la raiz de la primera derivada en la funcion original: f(0) = 0 <br>
+                        El punto critico es: (0,0) <br>
+                    </p>
+                    <div id="cont-img-flat">
+                        <img src="src/imgs/plncrtcno.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <span>MATHKID - &copy 2023 Todos los derechos reservados.</span>
+    </div>
+    <script src="JS/main.js"></script>
+</body>
+</html>
