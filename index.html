@@ -19,31 +19,40 @@
                 <span class="spD">D</span>
             </div>
         </nav>
-        <h1>CALCULADORA DE MAXIMO Y MINIMOS DE UNA FUNCION</h1>
+        <h1>CALCULADORA DE MAXIMOS Y MINIMOS DE UNA FUNCION</h1>
         <div id="form-input" class="card"> 
             <div id="cont-input">
-                <input type="number" placeholder="f(x) = 3x^2">
+                <div id="content-display">
+                    <div id="display-input" contenteditable=""></div>
+                </div>
                 <button id="btn-calculate">CALCULAR</button>
             </div>
             <div id="pad-numeric">
-                <button class="btn">1</button>
-                <button class="btn">2</button>
-                <button class="btn">3</button>
-                <button class="btn">4</button>
-                <button class="btn">5</button>
-                <button class="btn">6</button>
-                <button class="btn">7</button>
-                <button class="btn">8</button>
-                <button class="btn">9</button>
-                <button class="btn">0</button>
-                <button class="btn">+</button>
-                <button class="btn">-</button>
-                <button class="btn">x</button>
-                <button class="btn">x²</button>
-                <button class="btn">x</button>
-                <button class="btn">(</button>
-                <button class="btn">)</button>
+                <button class="btn" value="1">1</button>
+                <button class="btn" value="2">2</button>
+                <button class="btn" value="3">3</button>
+                <button class="btn" value="4">4</button>
+                <button class="btn" value="5">5</button>
+                <button class="btn" value="6">6</button>
+                <button class="btn" value="7">7</button>
+                <button class="btn" value="8">8</button>
+                <button class="btn" value="9">9</button>
+                <button class="btn" value="0">0</button>
+                <button class="btn" value="+">+</button>
+                <button class="btn" value="-">-</button>
+                <button class="btn" value="x">x</button>
+                <button class="btn" value="x²">x²</button>
+                <button id="btn-get-exp" value="x²">x<sup>[ ]</sup></button>
+                <button class="btn" value="(">(</button>
+                <button class="btn" value=")">)</button>
                 <button id="btn-del">DEL</button>
+            </div>
+        </div>
+        <div id="conatiner-popup">
+            <div id="popup">
+                <h3>Ingresa el valor del exponente</h3>
+                <input type="text" id="input-exp">
+                <button id="btn-set-exp">LISTO</button>
             </div>
         </div>
     </header>

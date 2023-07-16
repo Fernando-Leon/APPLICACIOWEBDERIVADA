@@ -1,4 +1,5 @@
 @import url(card.css);
+@import url(popup.css);
 
 * {
     margin: 0;
@@ -97,15 +98,27 @@ h1 {
     backdrop-filter: blur(1.5px);
 }
 
-input {
+#content-display {
     height: 40px;
     border: none;
     outline: none;
-    padding-left: 10px;
+    background-color: var(--colorWhute);
     border-radius: var(--rounded);
+    display: flex;
+    align-items: center;
 }
 
-#btn-calculate, #btn-del {
+#display-input {
+    flex-grow: 1;
+    padding: 11px 10px;
+    width: 100%;
+    outline: none;
+    overflow: auto;
+  white-space: nowrap;
+}
+
+
+#btn-calculate, #btn-del, #btn-set-exp {
     background-color: var(--primaryColor);
     border-radius: var(--rounded);
     color: var(--colorWhute);
@@ -118,9 +131,7 @@ input {
     transition: var(--timeTrnasition);
 }
 
-#btn-calculate:hover, #btn-del:hover  {
-    background-color: var(--secondColor);
-}
+#btn-calculate:hover, #btn-del:hover, #btn-set-exp:hover  { background-color: var(--secondColor); }
 
 
 
@@ -147,18 +158,18 @@ input {
     height: 40px;
 }
 
-.btn {
+.btn, #btn-get-exp {
     border: none;
     border-radius: 100%;
     width: 40px;
     height: 40px;
-    cursor: pointer;
     background-color: var(--colorWhute);
     box-shadow: var(--shadow);
     transition: var(--timeTrnasition);
+    cursor: pointer;
 }
 
-.btn:hover {
+.btn:hover, #btn-get-exp:hover {
     background-color: var(--secondColor);
     color: var(--colorWhute);
 }
