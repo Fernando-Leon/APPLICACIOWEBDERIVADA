@@ -1,11 +1,11 @@
+var funcion = null;
+
 const btnCalculate = document.getElementById('btn-calculate');
 const displayInput = document.getElementById('display-input');
 const btnDel = document.getElementById('btn-del');
 
-const popup = document.getElementById('conatiner-popup');
-popup.style.display = 'none';
-const btnSetExp = document.getElementById('btn-set-exp');
 const btnGetExp = document.getElementById('btn-get-exp');
+const btnGetExp2 = document.getElementById('btn-get-exp-2');
 
 const btns = document.getElementsByClassName('btn');
 
@@ -20,7 +20,6 @@ btnsArray.forEach(function(btn) {
 });
 
 // Evento para borrar en valor del dsiplayInput
-
 var tiempoInicio;
 
 btnDel.addEventListener("mousedown", function() {
@@ -48,39 +47,37 @@ btnDel.addEventListener('click', (e) => {
 
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
-    alert(displayInput.innerHTML);
+    funcion = displayInput.innerHTML;
+    console.log(funcion)
+    console.log(convertFunction(funcion));
+
 });
 
 // Agregar exponente n a x
 
 btnGetExp.addEventListener('click', (e) => {
     e.preventDefault();
-    popup.style.display = 'flex';
+    displayInput.innerHTML += `x<sup>3</sup>`;
 })
 
-btnSetExp.addEventListener('click', (e) => {
-    e.preventDefault();
-    let getExpInput = document.getElementById('input-exp').value;
-    displayInput.innerHTML += `x<sup>${getExpInput}</sup>`;
-    popup.style.display =  'none';
+btnGetExp2.addEventListener('click', (e) => {
+  e.preventDefault();
+  displayInput.innerHTML += `x<sup>2</sup>`;
 })
 
 // Restringuir el tipeo de caracteres no correspondientes 
-var caracteresPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', ')', '(', 'x'];
+var caracteresPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', ')', '(', 'x', 'X'];
 
 document.getElementById('display-input').addEventListener('keydown', function(e) {
   var teclaPresionada = e.key;
-
-  if (teclaPresionada === 'Delete' || teclaPresionada === 'Backspace') {
-    return;
-  }
-  
-  // Permitir teclas de navegación (Flecha izquierda y derecha)
-  if (teclaPresionada === 'ArrowLeft' || teclaPresionada === 'ArrowRight') {
-    return;
-  }
-
-  if (!caracteresPermitidos.includes(teclaPresionada)) {
-    e.preventDefault();
-  }
+  if (teclaPresionada === 'Delete' || teclaPresionada === 'Backspace') return;
+  if (teclaPresionada === 'ArrowLeft' || teclaPresionada === 'ArrowRight') return;
+  if (!caracteresPermitidos.includes(teclaPresionada)) e.preventDefault(); 
 });
+
+
+const convertFunction = (f) => {
+  let expresionRegular = /x<sup>(\d+)<\/sup>/g;
+  let cadenaModificada = f.replace(expresionRegular, "*(x^$1)");
+  return cadenaModificada; // Imprime "*(x^2)*(x^3)"
+}
