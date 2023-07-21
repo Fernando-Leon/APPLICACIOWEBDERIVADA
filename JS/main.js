@@ -48,8 +48,12 @@ btnDel.addEventListener('click', (e) => {
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
     funcion = displayInput.innerHTML;
-    console.log(funcion)
+    console.log(funcion);
+    const cadenaFuncion = convertFunction(funcion);
+    const derivada = obtenerDerivada(cadenaFuncion);
+
     console.log(convertFunction(funcion));
+    console.log(derivada); 
 
 });
 
@@ -77,7 +81,15 @@ document.getElementById('display-input').addEventListener('keydown', function(e)
 
 
 const convertFunction = (f) => {
-  let expresionRegular = /x<sup>(\d+)<\/sup>/g;
-  let cadenaModificada = f.replace(expresionRegular, "*(x^$1)");
-  return cadenaModificada; // Imprime "*(x^2)*(x^3)"
+  let expresionRegular = /(\d*)x<sup>(\d+)<\/sup>/g;
+  return cadenaModificada1 = f.replace(expresionRegular, function(match, coeficiente, exponente) {
+    return coeficiente ? `(${coeficiente}*x^${exponente})`: `(x^${exponente})`;
+  });
+}
+
+
+function obtenerDerivada(cadenaFuncion) {
+  const expr = math.parse(cadenaFuncion);
+  const derivada = expr.derivative('x').toString();
+  return derivada;
 }
