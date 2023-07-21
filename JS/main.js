@@ -1,3 +1,5 @@
+
+
 var funcion = null;
 
 const btnCalculate = document.getElementById('btn-calculate');
@@ -90,6 +92,6 @@ const convertFunction = (f) => {
 
 function obtenerDerivada(cadenaFuncion) {
   const expr = math.parse(cadenaFuncion);
-  const derivada = expr.derivative('x').toString();
+  const derivada = math.derivative(expr, 'x').toString();
   return derivada;
 }
