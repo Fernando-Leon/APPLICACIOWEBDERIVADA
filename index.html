@@ -6,18 +6,19 @@
         <title>CALCULADORA DE MAXIMO Y MINIMOS</title>
         <link rel="stylesheet" href="CSS/main.css" type="text/css">  
         <script src="node_modules/mathjs/lib/browser/math.js"></script>
+        <script src="node_modules/algebrite/dist/algebrite.bundle-for-browser.js"></script>
     </head>
-    <body>
-    <header class="container-h-full">
+    <body id="maximun">
+    <header id="container-header">
         <nav>
             <div>
-                <span class="spM">M</span>
-                <span class="spA">A</span>
-                <span class="spT">T</span>
-                <span class="spH">H</span>
-                <span class="spK">K</span>
-                <span class="spI">I</span>
-                <span class="spD">D</span>
+                <span id="spM">M</span>
+                <span id="spA">A</span>
+                <span id="spT">T</span>
+                <span id="spH">H</span>
+                <span id="spK">K</span>
+                <span id="spI">I</span>
+                <span id="spD">D</span>
             </div>
         </nav>
         <h1>CALCULADORA DE MAXIMOS Y MINIMOS DE UNA FUNCIONES CUADRATICAS Y CUBICAS</h1>
@@ -49,6 +50,7 @@
                 <button id="btn-del">DEL</button>
             </div>
         </div>
+        <img id="adorno-img-1" src="src/imgs/adorno1.png" alt="">
     </header>
     
     <div id="cont-result-main">
@@ -57,14 +59,12 @@
                     <h2></h2>
                 </div>
                 <div id="cont-result">
-                    <p id="text-result">
-                        Funcion ingresada: f(x) = 3x^2 <br>
-                        La primera derivada es: f'(x) = 6x <br>
-                        La segunda derivada es: f''(x) = 6 <br>
-                        Raiz de la primera derivada: x = 0 <br>
-                        Sustituyen la raiz de la primera derivada en la funcion original: f(0) = 0 <br>
-                        El punto critico es: (0,0) <br>
-                    </p>
+                    <div id="text-result">
+                        <p id="funcion-ingresada">Funcion ingresada: f(x) = </p>
+                        <p id="derivada-1">La primera derivada es: f'(x) =</p>
+                        <p id="igualacion-derivada">Igualamos a cero la derivada: </p>
+                        <p id="punto-critico">El punto critico es: </p>
+                    <div/>
                     <div id="cont-img-flat">
                         <img src="src/imgs/plncrtcno.png" alt="">
                     </div>
@@ -72,6 +72,11 @@
             </div>
             <span>MATHKID - &copy 2023 Todos los derechos reservados.</span>
     </div>
+
+    <script src="JS/animationletters.js"></script>
+    <script src="JS/functions.js"></script>
+    <script src="JS/view.js"></script>
     <script src="JS/main.js"></script>
+    <script src="JS/animationclouds.js"></script>
 </body>
 </html>

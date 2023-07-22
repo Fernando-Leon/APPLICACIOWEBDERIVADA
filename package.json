@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "algebrite": "^1.4.0",
     "mathjs": "^11.9.0"
   }
 }

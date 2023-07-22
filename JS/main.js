@@ -50,12 +50,11 @@ btnDel.addEventListener('click', (e) => {
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
     funcion = displayInput.innerHTML;
-    console.log(funcion);
     const cadenaFuncion = convertFunction(funcion);
+    console.log(cadenaFuncion);
     const derivada = obtenerDerivada(cadenaFuncion);
-
-    console.log(convertFunction(funcion));
-    console.log(derivada); 
+    const igulacionDerivada = derivadaIgualadaA0(derivada);
+    showResult(funcion, derivada, igulacionDerivada);
 
 });
 
@@ -80,18 +79,3 @@ document.getElementById('display-input').addEventListener('keydown', function(e)
   if (teclaPresionada === 'ArrowLeft' || teclaPresionada === 'ArrowRight') return;
   if (!caracteresPermitidos.includes(teclaPresionada)) e.preventDefault(); 
 });
-
-
-const convertFunction = (f) => {
-  let expresionRegular = /(\d*)x<sup>(\d+)<\/sup>/g;
-  return cadenaModificada1 = f.replace(expresionRegular, function(match, coeficiente, exponente) {
-    return coeficiente ? `(${coeficiente}*x^${exponente})`: `(x^${exponente})`;
-  });
-}
-
-
-function obtenerDerivada(cadenaFuncion) {
-  const expr = math.parse(cadenaFuncion);
-  const derivada = math.derivative(expr, 'x').toString();
-  return derivada;
-}
