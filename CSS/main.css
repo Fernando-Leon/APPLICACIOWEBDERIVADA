@@ -320,3 +320,38 @@ h1 {
 #cont-img-flat img {
     width: 50%;
 }
+
+#cont-result-main {
+    position: relative;
+}
+
+#img-mariposa{
+    height: 27%;
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    z-index: -1;
+    transform: rotate(-12deg);
+    flex-shrink: 0;
+}
+
+
+
+#img-girasol {
+    height: 60%;
+    position: absolute;
+    left: -15%;
+    bottom: -6%;
+    z-index: -1;
+    flex-shrink: 0;
+}
+
+
+#img-pocoyo  {
+    height: 60%;
+    position: absolute;
+    right: -8%;
+    bottom: -6%;
+    z-index: -1;
+    flex-shrink: 0;
+}
