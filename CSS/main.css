@@ -1,15 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,100;0,300;0,700;0,800;0,900;1,100;1,700;1,800;1,900&family=Flow+Circular&family=Righteous&family=Staatliches&family=Tektur&display=swap');
+
 @import url(card.css);
 @import url(popup.css);
 @import url(clouds.css);
 @import url(animations.css);
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Righteous','Staatliches', 'Tektur', 'Flow circular';     
 }
 
 
+body {
+    overflow-X: hidden;
+}
 /* 
 Variables
 */
@@ -28,6 +34,7 @@ Variables
     --extraColor3: #D8ADC4;
     --colorCard: #C4C4C4;
     --timeTrnasition: .3s;
+    --withbtns: 40px;
 }
 
 header {
@@ -39,6 +46,7 @@ header {
     z-index: 1;
     overflow: hidden;
 }
+
 
 header h1 {
     font-size: 25px;
@@ -77,6 +85,7 @@ h1 {
 }
 
 #form-input {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,30 +122,38 @@ h1 {
 }
 
 #content-display {
-    height: 40px;
+    height: var(--withbtns);
     border: none;
     outline: none;
     background-color: var(--colorWhute);
     border-radius: var(--rounded);
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 10% 90%;
+    grid-template-rows: var(--withbtns);
+}
+
+#placeholder-function {
+    display: grid;
+    place-content: center;
+    text-align: center;    
+    color: rgba(0, 0, 0, .9);
 }
 
 #display-input {
-    flex-grow: 1;
-    padding: 11px 10px;
-    width: 100%;
+    color: rgba(0, 0, 0, .9);
+    display: flex;
+    align-items: center;
     outline: none;
     overflow: auto;
-    white-space: nowrap;
 }
+
 
 
 #btn-calculate, #btn-del, #btn-set-exp {
     background-color: var(--primaryColor);
     border-radius: var(--rounded);
     color: var(--colorWhute);
-    height: 40px;
+    height: var(--withbtns);
     padding: 0px 25px;
     outline: none;
     border: none;
@@ -157,9 +174,9 @@ h1 {
     height: 70%;
     background: rgba(196, 196, 196, 0.80);
     border-radius: var(--rounded);
-    grid-template-rows: 40% 40%;
+    grid-template-rows: 4fr 4f;
     grid-template-columns: 9% 9% 9% 9% 9% 9% 9% 9% 9% 9%;
-    row-gap: 20%;
+    row-gap: 2fr;
     column-gap: 1%;
     justify-content: center;
     align-items: center;
@@ -170,18 +187,15 @@ h1 {
 #btn-del {
     grid-column: 8/11;
     padding: 0;
-    height: 40px;
+    height: var(--withbtns);
+    width: 100%;
 }   
 
 .btn, #btn-get-exp, #btn-get-exp-2 {
-    display: flex; /* Añadimos display flex para centrar el contenido verticalmente */
-    justify-content: center; /* Centramos el contenido verticalmente */
-    align-items: center; /* Centramos el contenido horizontalmente */
     border: none;
     border-radius: 50%;
-    width: 1fr;
-    height: 0; 
-    padding-bottom: 100%;
+    width: var(--withbtns);
+    height: var(--withbtns); 
     background-color: var(--colorWhute);
     box-shadow: var(--shadow);
     transition: var(--timeTrnasition);
@@ -190,7 +204,6 @@ h1 {
     /* Utilizamos aspect-ratio para mantener la proporción 1:1 (ancho:alto) */
     aspect-ratio: 1/1;
 }
-
 
 .btn:hover, #btn-get-exp:hover {
     background-color: var(--secondColor);
@@ -209,7 +222,25 @@ h1 {
     flex-shrink: 0;
 }
 
+#ellie-img-1 {
+    height: 60%;
+    position: absolute;
+    left: -10%;
+    bottom: -6%;
+    z-index: -1;
+    transform: rotate(-12deg);
+    flex-shrink: 0;
+}
 
+#pato-img-1 {
+    height: 60%;
+    position: absolute;
+    right: -15%;
+    bottom: -6%;
+    z-index: -1;
+    transform: rotate(-12deg);
+    flex-shrink: 0;
+}
 
 /*Result*/
 
@@ -262,11 +293,6 @@ h1 {
     justify-content: center;
 }
 
-#title-result h2::before {
-    content: 'RESULTADO';
-
-}
-
 
 
 #cont-result-main span {
@@ -291,6 +317,6 @@ h1 {
     line-height: 40px;
 }
 
-#cont-result img {
-    width: 100%;
+#cont-img-flat img {
+    width: 50%;
 }

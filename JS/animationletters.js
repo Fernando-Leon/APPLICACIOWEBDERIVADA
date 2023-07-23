@@ -28,7 +28,7 @@ function changeColor() {
       letters.forEach((letter) => {
         const elem = document.getElementById(`sp${letter}`);
         elem.classList.remove('color-transition');
-      });
-    }, 500);
-  }
+    });
+  }, 500);
+}
   

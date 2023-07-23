@@ -25,12 +25,13 @@
         <div id="form-input" class="card"> 
             <div id="cont-input">
                 <div id="content-display">
+                    <div id="placeholder-function">f (x) = </div>
                     <div id="display-input" contenteditable=""></div>
                 </div>
                 <button id="btn-calculate">CALCULAR</button>
             </div>
             <div id="pad-numeric">
-                <button class="btn" value="1"><b>1</b></button>
+                <button class="btn" value="1">1</button>
                 <button class="btn" value="2">2</button>
                 <button class="btn" value="3">3</button>
                 <button class="btn" value="4">4</button>
@@ -49,15 +50,15 @@
                 <button class="btn" value=")">)</button>
                 <button id="btn-del">DEL</button>
             </div>
+            <img id="ellie-img-1" src="src/imgs/ellie.png" alt="">
+            <img id="pato-img-1" src="src/imgs/pato.png" alt="">
         </div>
         <img id="adorno-img-1" src="src/imgs/adorno1.png" alt="">
     </header>
     
     <div id="cont-result-main">
-            <div id="cont-res" class="card">
-                <div id="title-result">
-                    <h2></h2>
-                </div>
+        <div id="cont-res" class="card">
+            <div id="title-result"><h2>Resultado</h2></div>
                 <div id="cont-result">
                     <div id="text-result">
                         <p id="funcion-ingresada">Funcion ingresada: f(x) = </p>
@@ -70,8 +71,10 @@
                     </div>
                 </div>
             </div>
-            <span>MATHKID - &copy 2023 Todos los derechos reservados.</span>
+        </div>
     </div>
+
+    <span id="copy-derechos">MATHKID - &copy 2023 Todos los derechos reservados.</span>
 
     <script src="JS/animationletters.js"></script>
     <script src="JS/functions.js"></script>
