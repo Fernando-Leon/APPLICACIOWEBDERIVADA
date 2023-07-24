@@ -1,0 +1,30 @@
+/* Style btns */
+.btn, #btn-get-exp, #btn-get-exp-2, #btn-calculate, #btn-del {
+    height: var(--withbtns);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--timeTrnasition);
+}
+
+#btn-calculate, #btn-del {
+    background-color: var(--primaryColor);
+    border-radius: var(--rounded);
+    color: var(--colorWhute);
+}
+
+#btn-del { grid-column: 8/11; }   
+
+.btn, #btn-get-exp, #btn-get-exp-2 {
+    border-radius: 50%;
+    width: var(--withbtns);
+    height: var(--withbtns); 
+    background-color: var(--colorWhute);
+    cursor: pointer;
+    text-align: center;
+    aspect-ratio: 1/1;
+}
+
+#btn-calculate:hover, #btn-del:hover { background-color: var(--secondColor); }
+.btn:hover, #btn-get-exp:hover, #btn-get-exp-2:hover { background-color: var(--secondColor); color: var(--colorWhute); }

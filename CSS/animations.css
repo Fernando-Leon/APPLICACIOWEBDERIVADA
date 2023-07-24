@@ -1,3 +1,17 @@
-.color-transition {
-    transition: color 0.5s ease;
-  }
+
+/*Animacion para letras - transicion*/
+
+.color-transition { transition: color 0.5s ease; }
+
+/*Animacion para clouds nubes*/
+
+@keyframes animateCloudLeft {
+  0% { left: -100px; }
+  100% { left:  calc(100%); }
+}
+
+@keyframes animateCloudRight {
+  0% { right: -100px; }
+  100% { right:  calc(100%); }
+}
+

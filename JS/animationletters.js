@@ -7,7 +7,6 @@ function changeColor() {
     const elem = document.getElementById(`sp${letter}`);
     elem.style.color = arrayColors[(currentIndex + index) % arrayColors.length];
   });
-
   currentIndex = (currentIndex + 1) % arrayColors.length;
 }
 
@@ -20,10 +19,7 @@ function changeColor() {
       elem.classList.add('color-transition');
       elem.style.color = arrayColors[(currentIndex + index) % arrayColors.length];
     });
-  
     currentIndex = (currentIndex + 1) % arrayColors.length;
-  
-    // Eliminamos la clase 'color-transition' después de 500 ms (0.5 segundos)
     setTimeout(() => {
       letters.forEach((letter) => {
         const elem = document.getElementById(`sp${letter}`);

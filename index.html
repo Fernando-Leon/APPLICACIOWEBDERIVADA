@@ -5,11 +5,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CALCULADORA DE MAXIMO Y MINIMOS</title>
         <link rel="stylesheet" href="CSS/main.css" type="text/css">  
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="node_modules/mathjs/lib/browser/math.js"></script>
         <script src="node_modules/algebrite/dist/algebrite.bundle-for-browser.js"></script>
     </head>
+
     <body id="maximun">
-    <header id="container-header">
+    
+    <!-- Main  -->   
+    <main id="container-header">
         <nav>
             <div>
                 <span id="spM">M</span>
@@ -22,13 +26,14 @@
             </div>
         </nav>
         <h1>CALCULADORA DE MAXIMOS Y MINIMOS DE UNA FUNCIONES CUADRATICAS Y CUBICAS</h1>
-        <div id="form-input" class="card"> 
+        <!-- Section Card Main -->
+        <section id="form-input" class="card"> 
             <div id="cont-input">
                 <div id="content-display">
                     <div id="placeholder-function">f (x) = </div>
                     <div id="display-input" contenteditable=""></div>
                 </div>
-                <button id="btn-calculate">CALCULAR</button>
+                <button id="btn-calculate" href="#cont-result-main">CALCULAR</button>
             </div>
             <div id="pad-numeric">
                 <button class="btn" value="1">1</button>
@@ -50,36 +55,39 @@
                 <button class="btn" value=")">)</button>
                 <button id="btn-del">DEL</button>
             </div>
-            <img id="ellie-img-1" src="src/imgs/ellie.png" alt="">
-            <img id="pato-img-1" src="src/imgs/pato.png" alt="">
-        </div>
-        <img id="adorno-img-1" src="src/imgs/adorno1.png" alt="">
-    </header>
+            <img class="img-statics" id="ellie-img-1" src="src/imgs/ellie.png" alt="">
+            <img class="img-statics" id="pato-img-1" src="src/imgs/pato.png" alt="">
+        </section>
+        <img class="img-statics" id="adorno-img-1" src="src/imgs/adorno1.png" alt="">
+    </main>
+
+    <!-- Section results -->
     
-    <div id="cont-result-main">
-        <div id="cont-res" class="card">
+    <section id="cont-result-main">
+
+        <div class="card" id="cont-res">
             <div id="title-result"><h2>Resultado</h2></div>
-                <div id="cont-result">
-                    <div id="text-result">
-                        <p id="funcion-ingresada">Funcion ingresada: f(x) = </p>
-                        <p id="derivada-1">La primera derivada es: f'(x) =</p>
-                        <p id="igualacion-derivada">Igualamos a cero la derivada: </p>
-                        <p id="punto-critico">El punto critico es: </p>
-                    <div/>
-                    <div id="cont-img-flat">
-                        <img src="src/imgs/plncrtcno.png" alt="">
-                    </div>
+            <div id="cont-result">
+                <div id="text-result">
+                    <p id="funcion-ingresada">Funcion ingresada: f(x) = </p>
+                    <p id="derivada-1">La primera derivada es: f'(x) =</p>
+                    <p id="igualacion-derivada">Igualamos a cero la derivada: </p>
+                    <p id="punto-critico">El punto critico es: </p>
+                </div>
+                <div id="cont-img-flat">
+                    <img src="src/imgs/plncrtcno.png" alt="">
                 </div>
             </div>
-        
-            <img id="img-mariposa" src="src/imgs/mariposa.png" alt="">
-            <img id="img-pocoyo" src="src/imgs/pocoyo1.png" alt="">
+
+            <img  class="img-statics" id="img-mariposa" src="src/imgs/mariposa.png" alt="">  
+            <img  class="img-statics" id="img-pocoyo" src="src/imgs/pocoyo1.png" alt="">
         </div>
-        <img id="img-girasol" src="src/imgs/girasol.png" alt="">
-    </div>
+        
+        <img  class="img-statics" id="img-girasol" src="src/imgs/girasol.png" alt="">
+        <span id="copy-derechos">MATHKID - &copy 2023 Todos los derechos reservados.</span>
+    </section>
 
-    <span id="copy-derechos">MATHKID - &copy 2023 Todos los derechos reservados.</span>
-
+    <!--Scripts propios -->
     <script src="JS/animationletters.js"></script>
     <script src="JS/functions.js"></script>
     <script src="JS/view.js"></script>

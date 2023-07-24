@@ -49,6 +49,7 @@ btnDel.addEventListener('click', (e) => {
 
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
+    $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
     funcion = displayInput.innerHTML;
     const cadenaFuncion = convertFunction(funcion);
     console.log(cadenaFuncion);

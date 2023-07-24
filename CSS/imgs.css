@@ -1,0 +1,55 @@
+.img-statics {
+    position: absolute;
+    z-index: -1;
+    flex-shrink: 0;
+}
+
+#adorno-img-1 {
+    width: 35%;
+    top: -10px;
+    left: -10px;
+    transform: rotate(-12deg);
+
+}
+
+#ellie-img-1 {
+    height: 60%;
+    left: -10%;
+    bottom: -6%;
+
+}
+
+#pato-img-1 {
+    height: 60%;
+    right: -15%;
+    bottom: -6%;
+    z-index: -1;
+
+}
+
+#img-mariposa{
+    height: 27%;
+    top: -10%;
+    left: -10%;
+    transform: rotate(-12deg);
+}
+
+#img-girasol {
+    height: 40%;
+    left: 5%;
+    bottom: 0%;
+    z-index: 2;
+}
+
+#img-pocoyo  {
+    height: 60%;
+    right: -8%;
+    bottom: -6%;
+}
+
+/* Section to graphic */
+
+#cont-img-flat img {
+    width: 100%;
+    justify-self: center;
+}
