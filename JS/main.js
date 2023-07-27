@@ -1,16 +1,10 @@
-
-
 var funcion = null;
-
 const btnCalculate = document.getElementById('btn-calculate');
 const displayInput = document.getElementById('display-input');
 const btnDel = document.getElementById('btn-del');
-
 const btnGetExp = document.getElementById('btn-get-exp');
 const btnGetExp2 = document.getElementById('btn-get-exp-2');
-
 const btns = document.getElementsByClassName('btn');
-
 const btnsArray = Array.from(btns);
 
 // Agregar evento click a cada boton
@@ -23,7 +17,6 @@ btnsArray.forEach(function(btn) {
 
 // Evento para borrar en valor del dsiplayInput
 var tiempoInicio;
-
 btnDel.addEventListener("mousedown", function() {
   tiempoInicio = new Date().getTime();
 });
@@ -32,7 +25,6 @@ btnDel.addEventListener("mouseup", function() {
   var duracion = new Date().getTime() - tiempoInicio;
   if (duracion > 1500) { displayInput.innerHTML = ""; }
 });
-
 
 btnDel.addEventListener('click', (e) => {
   e.preventDefault();
@@ -45,7 +37,6 @@ btnDel.addEventListener('click', (e) => {
     displayInput.innerHTML = cadena.slice(0, -1);
   }
 });
-
 
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
@@ -64,12 +55,10 @@ btnCalculate.addEventListener('click', (e) => {
 });
 
 // Agregar exponente n a x
-
 btnGetExp.addEventListener('click', (e) => {
     e.preventDefault();
     displayInput.innerHTML += `x<sup>3</sup>`;
 })
-
 btnGetExp2.addEventListener('click', (e) => {
   e.preventDefault();
   displayInput.innerHTML += `x<sup>2</sup>`;
@@ -77,7 +66,6 @@ btnGetExp2.addEventListener('click', (e) => {
 
 // Restringuir el tipeo de caracteres no correspondientes 
 var caracteresPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', ')', '(', 'x', 'X'];
-
 document.getElementById('display-input').addEventListener('keydown', function(e) {
   var teclaPresionada = e.key;
   if (teclaPresionada === 'Delete' || teclaPresionada === 'Backspace') return;

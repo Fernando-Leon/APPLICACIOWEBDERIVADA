@@ -4,7 +4,7 @@ const functionRandoms = (max, min) => { return Math.floor(Math.random() * (max -
 
 const addCloud = () => {
     let cloud = document.createElement("img");
-    let time = functionRandoms(20, 10); 
+    let time = functionRandoms(35, 20); 
     cloud.src = '../src/imgs/cloud.png';
     cloud.classList.add('cloud');
     cloud.style.position = `absolute`;
@@ -25,5 +25,5 @@ const addCloud = () => {
     }, `${time * 1000}`);
 }
 
-setInterval(()=> { addCloud(); }, 3000);
-setInterval(()=> { addCloud(); }, 3000);
+setInterval(()=> { addCloud(); }, 3500);
+setInterval(()=> { addCloud(); }, 3500);
