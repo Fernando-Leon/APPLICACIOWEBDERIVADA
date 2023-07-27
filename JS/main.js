@@ -49,14 +49,18 @@ btnDel.addEventListener('click', (e) => {
 
 btnCalculate.addEventListener('click', (e) => {
     e.preventDefault();
-    $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
     funcion = displayInput.innerHTML;
     const cadenaFuncion = convertFunction(funcion);
     console.log(cadenaFuncion);
-    const derivada = obtenerDerivada(cadenaFuncion);
-    const igulacionDerivada = derivadaIgualadaA0(derivada);
-    showResult(funcion, derivada, igulacionDerivada);
-
+    let derivada1 = obtenerDerivada(cadenaFuncion);
+    let derivada2 = obtenerDerivada(derivada1);
+    let dotCritical = resolveDerivate(derivada1); 
+    showResult(funcion, derivada1, derivada2, dotCritical);
+    let equationFunction = convertToFunction(derivada1);
+    let root = bisectionMethod(equationFunction, 0, 2);
+    console.log("La solución de la ecuación,es x =", root);
+    $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
+    graficarFuncion();
 });
 
 // Agregar exponente n a x

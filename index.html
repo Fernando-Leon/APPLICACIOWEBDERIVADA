@@ -8,6 +8,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="node_modules/mathjs/lib/browser/math.js"></script>
         <script src="node_modules/algebrite/dist/algebrite.bundle-for-browser.js"></script>
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
     </head>
 
     <body id="maximun">
@@ -71,11 +72,12 @@
                 <div id="text-result">
                     <p id="funcion-ingresada">Funcion ingresada: f(x) = </p>
                     <p id="derivada-1">La primera derivada es: f'(x) =</p>
+                    <p id="derivada-2">La segunda derivada es: f''(x) =</p>
                     <p id="igualacion-derivada">Igualamos a cero la derivada: </p>
                     <p id="punto-critico">El punto critico es: </p>
                 </div>
                 <div id="cont-img-flat">
-                    <img src="src/imgs/plncrtcno.png" alt="">
+                    <div id="ggb-graph"></div>
                 </div>
             </div>
 
@@ -93,5 +95,6 @@
     <script src="JS/view.js"></script>
     <script src="JS/main.js"></script>
     <script src="JS/animationclouds.js"></script>
+    <script src="JS/graphic.js"></script>
 </body>
 </html>
