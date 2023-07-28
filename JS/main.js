@@ -1,13 +1,13 @@
-var funcion = null;
-const btnCalculate = document.getElementById('btn-calculate');
-const displayInput = document.getElementById('display-input');
-const btnDel = document.getElementById('btn-del');
-const btnGetExp = document.getElementById('btn-get-exp');
-const btnGetExp2 = document.getElementById('btn-get-exp-2');
-const btns = document.getElementsByClassName('btn');
+var funcion = null; // El valor de la funcion se unicializa en null
+const btnCalculate = document.getElementById('btn-calculate'); // Boton para calcular los maximos y minimos
+const displayInput = document.getElementById('display-input'); // Input donde se ingresa la funcion
+const btnDel = document.getElementById('btn-del'); // Boton para borrar en el input
+const btnGetExp = document.getElementById('btn-get-exp'); // Boton para agregar exponente 3 a x
+const btnGetExp2 = document.getElementById('btn-get-exp-2'); // Boton para agregar exponente 2 a x
+const btns = document.getElementsByClassName('btn'); // Botones de la calculadora
 const btnsArray = Array.from(btns);
 
-// Agregar evento click a cada boton
+// Agregar evento click a cada boton para que se muestre en el input
 btnsArray.forEach(function(btn) {
   btn.addEventListener('click', function() {
     let valor = this.value;
@@ -15,18 +15,7 @@ btnsArray.forEach(function(btn) {
   });
 });
 
-// Evento para borrar en valor del dsiplayInput
-var tiempoInicio;
-btnDel.addEventListener("mousedown", function() {
-  tiempoInicio = new Date().getTime();
-});
-
-btnDel.addEventListener("mouseup", function() {
-  var duracion = new Date().getTime() - tiempoInicio;
-  if (duracion > 1500) { displayInput.innerHTML = ""; }
-});
-
-btnDel.addEventListener('click', (e) => {
+btnDel.addEventListener('click', (e) => { // Boton para borra el ultimo caracter del input
   e.preventDefault();
   let expresionRegular = /(<sup>\d+<\/sup>)$/;
   let cadena = displayInput.innerHTML;
@@ -38,37 +27,49 @@ btnDel.addEventListener('click', (e) => {
   }
 });
 
-btnCalculate.addEventListener('click', (e) => {
-    e.preventDefault();
-    funcion = displayInput.innerHTML;
-    const cadenaFuncion = convertFunction(funcion);
-    console.log(cadenaFuncion);
-    let derivada1 = obtenerDerivada(cadenaFuncion);
-    let derivada2 = obtenerDerivada(derivada1);
-    let dotCritical = resolveDerivate(derivada1); 
-    showResult(funcion, derivada1, derivada2, dotCritical);
-    let equationFunction = convertToFunction(derivada1);
-    let root = bisectionMethod(equationFunction, 0, 2);
-    console.log("La solución de la ecuación,es x =", root);
-    $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
-    graficarFuncion();
+// Evento para borrar en valor completo del dsiplayInput pasado n segundos presionado el boton
+var tiempoInicio;
+btnDel.addEventListener("mousedown", function() { tiempoInicio = new Date().getTime(); });
+
+btnDel.addEventListener("mouseup", function() {
+  let duracion = new Date().getTime() - tiempoInicio;
+  if (duracion > 1500) displayInput.innerHTML = ""; 
 });
 
-// Agregar exponente n a x
-btnGetExp.addEventListener('click', (e) => {
-    e.preventDefault();
-    displayInput.innerHTML += `x<sup>3</sup>`;
-})
-btnGetExp2.addEventListener('click', (e) => {
+btnGetExp2.addEventListener('click', (e) => { // Agregar exponente 2 a x
   e.preventDefault();
   displayInput.innerHTML += `x<sup>2</sup>`;
 })
 
+btnGetExp.addEventListener('click', (e) => { // Agregar exponente 3 a x
+  e.preventDefault();
+  displayInput.innerHTML += `x<sup>3</sup>`;
+})
+
 // Restringuir el tipeo de caracteres no correspondientes 
-var caracteresPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', ')', '(', 'x', 'X'];
+const caracteresPermitidos = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', ')', '(', 'x', 'X'];
 document.getElementById('display-input').addEventListener('keydown', function(e) {
   var teclaPresionada = e.key;
   if (teclaPresionada === 'Delete' || teclaPresionada === 'Backspace') return;
   if (teclaPresionada === 'ArrowLeft' || teclaPresionada === 'ArrowRight') return;
   if (!caracteresPermitidos.includes(teclaPresionada)) e.preventDefault(); 
+});
+
+// Boton para calcular los maximos y minimos (funcion main)
+
+btnCalculate.addEventListener('click', (e) => {
+  e.preventDefault();
+  funcion = displayInput.innerHTML;
+  console.log(funcion);    
+  const cadenaFuncion = convertFunction(funcion);
+  console.log(cadenaFuncion);
+  let derivada1 = obtenerDerivada(cadenaFuncion);
+  let derivada2 = obtenerDerivada(derivada1);
+  let equationFunction = convertToFunction(derivada1);
+  let dotCritical = bisectionMethod(equationFunction, 0, 2);
+  let inY = calculateEcuation(cadenaFuncion, dotCritical);
+  console.log("VALUE IN Y: ", inY);
+  showResult(funcion, derivada1, derivada2, `${derivada1} = 0`, dotCritical, inY.toString());
+  graficarFuncion(`f(x) = ${cadenaFuncion}`, {x: dotCritical, y: inY});
+  $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
 });

@@ -1,32 +1,32 @@
 
-
+// Funcion para convertir la funcion ingresada a una exprecion valida para mathjs
 const convertFunction = (f) => {
-    let expresionRegular = /(\d*)x<sup>(\d+)<\/sup>/g;
-    return cadenaModificada1 = f.replace(expresionRegular, function(match, coeficiente, exponente) {
-      return coeficiente ? `(${coeficiente}*x^${exponente})`: `(x^${exponente})`;
-    });
-  }
-  
-  
+  let expresionRegular = /(\d*)x(<sup>(\d+)<\/sup>)?/g;
+  return f.replace(expresionRegular, function(match, coeficiente, _, exponente) {
+    return coeficiente ? `(${coeficiente}*x${exponente ? '^' + exponente : ''})` : `(x${exponente ? '^' + exponente : ''})`;
+  }).replace(/x<sup>1<\/sup>/g, 'x');
+};  
+
+// Calcula la deribada de la funcion ingresada
 function obtenerDerivada(cadenaFuncion) {
-    const expr = math.parse(cadenaFuncion);
-    const derivada = math.derivative(expr, 'x').toString();
-    console.log(derivada); 
-    return derivada;
+  let expr = math.parse(cadenaFuncion);
+  let derivada = math.derivative(expr, 'x').toString(); 
+  return derivada;
 }
 
-const derivadaIgualadaA0 = (derivada) => {
-    let deivateToIqualTo0 = `${derivada}`; 
-    return math.simplify(deivateToIqualTo0);
+// Convierte el string de la ecuación en una función
+function convertToFunction(str) {
+  return function(x) {
+    return eval(str);
+  };
 }
 
-const resolveDerivate = (derivate) => {
-    let strDerivate = `${derivate} = 0`; 
-    return resolveDerivate;
+// Resuelve la ecuación con el valor de x
+const calculateEcuation = (fx, x) => {
+  let sustitutedX = fx.replace(/x/g, x);
+  return math.evaluate(sustitutedX);
 }
 
-// Función para resolver una ecuación igualada a cero mediante el método de la bisección
-// Función para resolver una ecuación igualada a cero mediante el método de la bisección
 function bisectionMethod(func, a, b) {
   let fa = func(a);
   let fb = func(b);
@@ -49,11 +49,3 @@ function bisectionMethod(func, a, b) {
   }
   return c;
 }
-
-// Convierte el string de la ecuación en una función
-function convertToFunction(str) {
-  return function(x) {
-    return eval(str);
-  };
-}
-
