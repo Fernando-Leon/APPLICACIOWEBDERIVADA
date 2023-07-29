@@ -1,9 +1,15 @@
 // Funcion para graficar la funcion ingresada y los maximos y minimos
 
+let displayCanvas = document.getElementById('cont-img-flat');
+
+let widthInPixels = displayCanvas.offsetWidth;
+
+let heightInPixels = displayCanvas.offsetHeight;
+
 function graficarFuncion(fx = 'f(x) = x^2 - 4x + 3', cord = {x: 0, y: 0}) {
     const applet = new GGBApplet({
-      "width": 600,
-      "height": 400,
+      "width": widthInPixels,
+      "height": heightInPixels,
       "appName": "classic",
       "showToolBar": false,
       "showAlgebraInput": false, 

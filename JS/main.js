@@ -66,10 +66,10 @@ btnCalculate.addEventListener('click', (e) => {
   let derivada1 = obtenerDerivada(cadenaFuncion);
   let derivada2 = obtenerDerivada(derivada1);
   let equationFunction = convertToFunction(derivada1);
-  let dotCritical = bisectionMethod(equationFunction, 0, 2);
-  let inY = calculateEcuation(cadenaFuncion, dotCritical);
-  console.log("VALUE IN Y: ", inY);
-  showResult(funcion, derivada1, derivada2, `${derivada1} = 0`, dotCritical, inY.toString());
-  graficarFuncion(`f(x) = ${cadenaFuncion}`, {x: dotCritical, y: inY});
+  let dotCritical = bisectionMethod(equationFunction,  -10, 10, 0.0001);
+  let values = calculateEcuation(cadenaFuncion, dotCritical);
+  console.log("VALUE IN Y: ", values[0]);
+  showResult(funcion, derivada1, derivada2, `${derivada1} = 0`, dotCritical, values);
+  graficarFuncion(`f(x) = ${cadenaFuncion}`, {x: dotCritical, y: values[0]});
   $("html, body").animate({ scrollTop: $('#cont-result-main').offset().top }, 1000);
 });

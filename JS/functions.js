@@ -23,20 +23,23 @@ function convertToFunction(str) {
 
 // Resuelve la ecuación con el valor de x
 const calculateEcuation = (fx, x) => {
-  let sustitutedX = fx.replace(/x/g, x);
-  return math.evaluate(sustitutedX);
+  let sustitutedX = fx.replace(/x/g, `(${x})`);
+  return [math.evaluate(sustitutedX).toFixed(2), sustitutedX];
 }
 
-function bisectionMethod(func, a, b) {
+function bisectionMethod(func, a, b, tolerance) {
   let fa = func(a);
   let fb = func(b);
+
+  // Si f(a) y f(b) tienen el mismo signo, el método no garantiza encontrar una raíz,
+  // pero permitiremos continuar y ver si podemos encontrar una raíz dentro del intervalo.
   if (fa * fb >= 0) {
-    throw new Error("La función no cumple con los requisitos del método de bisección.");
+    console.warn("Advertencia: f(a) y f(b) tienen el mismo signo. El método puede no encontrar una raíz en este intervalo.");
   }
 
-  let c = (a + b) / 2;
+  let c = math.bignumber(a).plus(b).div(2);
   let fc = func(c);
-  while (Math.abs(fc) > 1e-15) { // Usamos una tolerancia muy pequeña (1e-15) para la precisión
+  while (math.abs(fc) > tolerance) { // Usamos una tolerancia muy pequeña (1e-15) para la precisión
     if (fa * fc < 0) {
       b = c;
       fb = fc;
@@ -44,8 +47,8 @@ function bisectionMethod(func, a, b) {
       a = c;
       fa = fc;
     }
-    c = (a + b) / 2;
+    c = math.bignumber(a).plus(b).div(2);
     fc = func(c);
   }
-  return c;
+  return c.toNumber().toFixed(2); // Convertimos el resultado BigNumber a Number para obtener un resultado más manejable
 }
