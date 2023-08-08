@@ -12,6 +12,7 @@
     background-color: var(--primaryColor);
     border-radius: var(--rounded);
     color: var(--colorWhute);
+    font-size: 1rem;
 }
 
 #btn-del { grid-column: 8/11; }   
